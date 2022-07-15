@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:BookCollection.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
 
-        <TextBlock Text="Book"/>
-
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="{Binding Title}"/>
+        <TextBlock Text="{Binding Author}"/>
+    </StackPanel>
 </UserControl>

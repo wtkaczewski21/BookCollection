@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BookCollection.Core.ViewModels.Base;
 
 namespace BookCollection.Core.ViewModels.Controls
 {
-    public class BookViewModel
+    public class BookViewModel : BaseViewModel
     {
         public string Title { get; set; }
         public string Author { get; set; }

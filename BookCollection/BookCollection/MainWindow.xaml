@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookCollection" xmlns:local1="clr-namespace:BookCollection.Pages"
         mc:Ignorable="d"
+        MinHeight="600"
+        MinWidth="550"
         Title="MainWindow" Height="600" Width="550">
     
     <local1:BooksPage/>

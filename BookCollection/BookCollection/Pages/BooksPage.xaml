@@ -11,21 +11,27 @@
     <Grid>
         <TextBlock Text="List of your books:" Margin="20 0 0 0"/>
         <StackPanel Margin="20 30 245 20">
-            <local1:Book/>
-            <local1:Book/>
-            <local1:Book/>
-            <local1:Book/>
-            <local1:Book/>
+
+            <ScrollViewer Height="300">
+                <ItemsControl ItemsSource="{Binding Books}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local1:Book/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+                 
         </StackPanel>
         <StackPanel Width="200" Margin="310 30 20 292" VerticalAlignment="Center">
             <TextBlock Text="Title"/>
-            <TextBox />
+            <TextBox Text="{Binding NewBookTitle, Mode=TwoWay}"/>
             <TextBlock Text="Author"/>
-            <TextBox />
+            <TextBox Text="{Binding NewBookAuthor, Mode=TwoWay}"/>
         </StackPanel>
         <StackPanel Margin="310,292,20,30">
             <StackPanel Orientation="Horizontal">
-                <Button Content="Add"/>
+                <Button Content="Add" Command="{Binding AddNewBookCommand}"/>
                 <Button Content="Delete"/>
             </StackPanel>
         </StackPanel>
