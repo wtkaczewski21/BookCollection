@@ -7,8 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <StackPanel>
-        <TextBlock Text="{Binding Title}"/>
-        <TextBlock Text="{Binding Author}"/>
+    <StackPanel Orientation="Horizontal">
+        <CheckBox IsChecked="{Binding IsChecked}"/>
+        <StackPanel>
+            <TextBlock Text="{Binding Title}"/>
+            <TextBlock Text="{Binding Author}"/>
+        </StackPanel>
     </StackPanel>
+
 </UserControl>

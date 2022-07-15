@@ -13,7 +13,7 @@
         <StackPanel Margin="20 30 245 20">
 
             <ScrollViewer Height="300">
-                <ItemsControl ItemsSource="{Binding Books}">
+                <ItemsControl ItemsSource="{Binding BooksList}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <local1:Book/>
@@ -32,7 +32,7 @@
         <StackPanel Margin="310,292,20,30">
             <StackPanel Orientation="Horizontal">
                 <Button Content="Add" Command="{Binding AddNewBookCommand}"/>
-                <Button Content="Delete"/>
+                <Button Content="Delete" Command="{Binding DeleteSelectedBooksCommand}"/>
             </StackPanel>
         </StackPanel>
 
