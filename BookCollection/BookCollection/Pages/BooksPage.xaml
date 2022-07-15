@@ -9,10 +9,10 @@
       Title="BooksPage">
 
     <Grid>
-        <TextBlock Text="List of your books:" Margin="20 0 0 0"/>
-        <StackPanel Margin="20 30 245 20">
-
-            <ScrollViewer Height="300">
+        
+        <TextBlock FontSize="35" HorizontalAlignment="Center" Text="Bookshelf"></TextBlock>
+        <StackPanel Margin="20,50,245,20">
+            <ScrollViewer Height="450" Width="270">
                 <ItemsControl ItemsSource="{Binding BooksList}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -21,20 +21,32 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
-                 
-        </StackPanel>
-        <StackPanel Width="200" Margin="310 30 20 292" VerticalAlignment="Center">
-            <TextBlock Text="Title"/>
-            <TextBox Text="{Binding NewBookTitle, Mode=TwoWay}"/>
-            <TextBlock Text="Author"/>
-            <TextBox Text="{Binding NewBookAuthor, Mode=TwoWay}"/>
-        </StackPanel>
-        <StackPanel Margin="310,292,20,30">
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Add" Command="{Binding AddNewBookCommand}"/>
-                <Button Content="Delete" Command="{Binding DeleteSelectedBooksCommand}"/>
-            </StackPanel>
         </StackPanel>
 
+        <StackPanel Margin="310,30,20,292" VerticalAlignment="Center">
+            <TextBlock Text="Title:"/>
+            <TextBox Height="30" FontSize="15" Text="{Binding NewBookTitle, Mode=TwoWay}" VerticalContentAlignment="Center"/>
+            <TextBlock Text="Author:"/>
+            <ComboBox Height="30" ItemsSource="{Binding AuthorsList}" SelectedItem="{Binding SelectedAuthor, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding AuthorName}"></TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Text="Genre:"/>
+            <ComboBox Height="30" ItemsSource="{Binding GenresList}" SelectedItem="{Binding SelectedGenre, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding GenreName}"></TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Add" Command="{Binding AddNewBookCommand}"></Button>
+                <Button Content="Delete" Command="{Binding DeleteSelectedBooksCommand}"></Button>
+            </StackPanel>
+        </StackPanel>
+        
     </Grid>
 </Page>

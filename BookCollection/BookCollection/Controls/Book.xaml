@@ -7,11 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <StackPanel Orientation="Horizontal">
-        <CheckBox IsChecked="{Binding IsChecked}"/>
+    <StackPanel Orientation=" Horizontal">
+        <CheckBox VerticalAlignment="Center" Margin="20" IsChecked="{Binding IsChecked}"/>
         <StackPanel>
-            <TextBlock Text="{Binding Title}"/>
-            <TextBlock Text="{Binding Author}"/>
+            <TextBlock VerticalAlignment="Center" Text="{Binding Title}"/>
         </StackPanel>
     </StackPanel>
 
