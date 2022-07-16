@@ -1,4 +1,5 @@
-﻿using BookCollection.Core.ViewModels.Base;
+﻿using BookCollection.Core.Models;
+using BookCollection.Core.ViewModels.Base;
 
 namespace BookCollection.Core.ViewModels.Controls
 {
@@ -9,5 +10,7 @@ namespace BookCollection.Core.ViewModels.Controls
         public int AuthorId { get; set; }
         public int GenreId { get; set; }
         public bool IsChecked { get; set; }
+        public int BookRatingId { get; set; }
+        public BookRating BookRatingShow { get; set; }
     }
 }

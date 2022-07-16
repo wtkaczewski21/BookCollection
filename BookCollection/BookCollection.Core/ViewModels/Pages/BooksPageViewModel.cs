@@ -13,18 +13,21 @@ namespace BookCollection.Core.ViewModels.Pages
         private readonly IBookService<Book> _bookService;
         private readonly IAuthorService<Author> _authorService;
         private readonly IGenreService<Genre> _genreService;
+        private readonly IRatingService<BookRating> _ratingService;
         public string NewBookTitle { get; set; }
         public ICommand AddNewBookCommand { get; set; }
         public ICommand DeleteSelectedBooksCommand { get; set; }
         public ObservableCollection<BookViewModel> BooksList { get; set; } = new ObservableCollection<BookViewModel>();
         public ObservableCollection<Author> AuthorsList { get; set; } = new ObservableCollection<Author>();
         public ObservableCollection<Genre> GenresList { get; set; } = new ObservableCollection<Genre>();
+        public ObservableCollection<BookRating> BookRatingsList { get; set; } = new ObservableCollection<BookRating>();
 
-        public BooksPageViewModel(IBookService<Book> bookService, IAuthorService<Author> authorService, IGenreService<Genre> genreService)
+        public BooksPageViewModel(IBookService<Book> bookService, IAuthorService<Author> authorService, IGenreService<Genre> genreService, IRatingService<BookRating> ratingService)
         {
             _bookService = bookService;
             _authorService = authorService;
             _genreService = genreService;
+            _ratingService = ratingService;
             AddNewBookCommand = new RelayCommand(AddBook);
             DeleteSelectedBooksCommand = new RelayCommand(DeleteSelectedBooks);
         }
@@ -56,6 +59,21 @@ namespace BookCollection.Core.ViewModels.Pages
             {
                 _selectedGenre = value;
                 OnPropertyChanged("SelectedGenre");
+            }
+        }
+
+        private BookRating _selectedRating;
+
+        public BookRating SelectedRating
+        {
+            get
+            {
+                return _selectedRating;
+            }
+            set
+            {
+                _selectedRating = value;
+                OnPropertyChanged("SelectedRating");
             }
         }
 
@@ -95,13 +113,26 @@ namespace BookCollection.Core.ViewModels.Pages
             }
         }
 
+        public void GetAllRatings()
+        {
+            foreach (var rating in _ratingService.GetAllRatings())
+            {
+                BookRatingsList.Add(new BookRating()
+                {
+                    Rating = rating.Rating,
+                    Id = rating.Id
+                });
+            }
+        }
+
         public void AddBook()
         {
             var newBook = new Book()
             {
                 Title = NewBookTitle,
                 AuthorId = SelectedAuthor.Id,
-                GenreId = SelectedGenre.Id
+                GenreId = SelectedGenre.Id,
+                BookRatingId = SelectedRating.Id
             };
             _bookService.AddBook(newBook);
 

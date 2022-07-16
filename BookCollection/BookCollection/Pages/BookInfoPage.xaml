@@ -8,10 +8,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="BookInfoPage">
 
-    <StackPanel Margin="20" HorizontalAlignment="Left" VerticalAlignment="Center">
-        <TextBlock FontSize="30" Margin="0 0 0 5" Text="{Binding BookInfoTitle, StringFormat='Title: {0}'}"/>
-        <TextBlock FontSize="30" Margin="0 0 0 5" Text="{Binding BookInfoAuthorName, StringFormat='Author: {0}'}"/>
-        <TextBlock FontSize="30" Margin="0 0 0 5" Text="{Binding BookInfoGenreName, StringFormat='Genre: {0}'}"/>
+    <StackPanel HorizontalAlignment="Center" Margin="0 50 0 0">
+        <Border Padding="10" Background="LightGray" BorderThickness="1">
+            <StackPanel>
+                <TextBlock FontSize="30" Margin="0 0 0 5" Text="{Binding BookInfoTitle, StringFormat='Title: {0}'}"/>
+                <TextBlock FontSize="30" Margin="0 0 0 5" Text="{Binding BookInfoAuthorName, StringFormat='Author: {0}'}"/>
+                <TextBlock FontSize="30" Margin="0 0 0 5" Text="{Binding BookInfoGenreName, StringFormat='Genre: {0}'}"/>
+                <TextBlock FontSize="30" Margin="0 0 0 5" Text="{Binding BookInfoRating, StringFormat='Rating: {0}'}"/>
+            </StackPanel>
+        </Border>
     </StackPanel>
     
 </Page>

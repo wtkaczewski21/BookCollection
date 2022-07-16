@@ -15,8 +15,9 @@ namespace BookCollection.Pages
             IBookService<Book> bookService = new BookService<Book>(new DesignTimeDbContextFactory());
             IAuthorService<Author> authorService = new AuthorService<Author>(new DesignTimeDbContextFactory());
             IGenreService<Genre> genreService = new GenreService<Genre>(new DesignTimeDbContextFactory());
+            IRatingService<BookRating> ratingService = new RatingService<BookRating>(new DesignTimeDbContextFactory());
 
-            var viewModel = new BookInfoPageViewModel(bookService, authorService, genreService);
+            var viewModel = new BookInfoPageViewModel(bookService, authorService, genreService, ratingService);
             viewModel.GetBookInfo(bookId);
             DataContext = viewModel;
 
