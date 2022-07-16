@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using BookCollection.Pages;
+using System.Windows;
 
 namespace BookCollection
 {
@@ -10,6 +11,7 @@ namespace BookCollection
         public MainWindow()
         {
             InitializeComponent();
+            _defaultView.NavigationService.Navigate(new BooksPage());
         }
     }
 }

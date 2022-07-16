@@ -8,7 +8,9 @@
         MinHeight="600"
         MinWidth="550"
         Title="Bookshelf" Height="600" Width="550">
-    
-    <local1:BooksPage/>
-    
+
+    <Grid>
+        <Frame x:Name="_defaultView" />
+    </Grid>
+
 </Window>

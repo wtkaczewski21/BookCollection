@@ -1,7 +1,9 @@
 ﻿using BookCollection.Core.Database;
 using BookCollection.Core.Models;
 using BookCollection.Core.ViewModels.Pages;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace BookCollection.Pages
 {
@@ -22,6 +24,14 @@ namespace BookCollection.Pages
             viewModel.GetAllGenres();
             DataContext = viewModel;
             InitializeComponent();
+        }
+
+        private void BookInfoButton(object sender, RoutedEventArgs e)
+        {
+            var btn = ((Button)sender).Tag;
+            BookInfoPage bookInfoPage = new BookInfoPage((int)btn);
+            NavigationService navigationService = this.NavigationService;
+            navigationService.Navigate(bookInfoPage);
         }
     }
 }

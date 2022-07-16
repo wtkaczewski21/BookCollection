@@ -1,0 +1,17 @@
+﻿<Page x:Class="BookCollection.Pages.BookInfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BookCollection.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BookInfoPage">
+
+    <StackPanel Margin="20" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <TextBlock FontSize="30" Margin="0 0 0 5" Text="{Binding BookInfoTitle, StringFormat='Title: {0}'}"/>
+        <TextBlock FontSize="30" Margin="0 0 0 5" Text="{Binding BookInfoAuthorName, StringFormat='Author: {0}'}"/>
+        <TextBlock FontSize="30" Margin="0 0 0 5" Text="{Binding BookInfoGenreName, StringFormat='Genre: {0}'}"/>
+    </StackPanel>
+    
+</Page>
